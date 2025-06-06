@@ -77,12 +77,38 @@ h1, h2, h3 {
   display: block;
 }
 
+.word-list-container {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  /* Scrollbar styling for Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) #f0f0f0;
+}
+
+/* Scrollbar styling for Chrome/Safari/Edge */
+.word-list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.word-list-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+.word-list-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
 .word-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  margin-bottom: 20px;
 }
 
 .word-item {
@@ -130,10 +156,62 @@ h1, h2, h3 {
   color: var(--secondary-color);
 }
 
+.pronunciation-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
 .pronunciation {
   font-style: italic;
-  margin-bottom: 15px;
   color: #666;
+  flex: 1;
+}
+
+.pronunciation-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.pronunciation-button {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.pronunciation-button:hover {
+  background: #f0f0f0;
+}
+
+.pronunciation-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pronunciation-button span {
+  font-size: 18px;
+}
+
+.pronunciation-button.uk {
+  color: #012169;
+}
+
+.pronunciation-button.us {
+  color: #3C3B6E;
+}
+
+.uk-pron, .us-pron {
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .definition {

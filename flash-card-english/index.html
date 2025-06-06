@@ -27,7 +27,9 @@
             <!-- Manual Mode -->
             <div id="manual-mode" class="manual-mode active">
                 <h3>Select 7 words to study</h3>
-                <div id="word-list" class="word-list"></div>
+                <div id="word-list-container" class="word-list-container">
+                    <div id="word-list" class="word-list"></div>
+                </div>
             </div>
             
             <!-- Auto Mode -->
@@ -71,7 +73,17 @@
                     <p>Loading word information...</p>
                 </div>
                 
-                <div id="pronunciation" class="pronunciation">Pronunciation</div>
+                <div class="pronunciation-container">
+                    <div id="pronunciation" class="pronunciation">Pronunciation</div>
+                    <div class="pronunciation-buttons">
+                        <button id="pronunciation-br-button" class="pronunciation-button uk" title="Play British pronunciation">
+                            <span>🇬🇧</span>
+                        </button>
+                        <button id="pronunciation-us-button" class="pronunciation-button us" title="Play American pronunciation">
+                            <span>🇺🇸</span>
+                        </button>
+                    </div>
+                </div>
                 <div id="definition" class="definition">Definition</div>
                 
                 <div class="translation-input">

@@ -2,12 +2,17 @@
  * Dictionary Service
  * 
  * This service handles fetching word information from Oxford Learners Dictionary
+ * including definitions, pronunciations, and audio files
  */
 
 class DictionaryService {
     constructor() {
         this.baseUrl = 'https://www.oxfordlearnersdictionaries.com/definition/english/';
         this.proxyUrl = 'https://api.allorigins.win/raw?url=';
+        
+        // Audio URLs for fallback
+        this.audioBaseUrl = 'https://www.oxfordlearnersdictionaries.com/media/english/uk_pron/';
+        this.audioBaseUrlUS = 'https://www.oxfordlearnersdictionaries.com/media/english/us_pron/';
     }
 
     /**
@@ -43,25 +48,50 @@ class DictionaryService {
     }
 
     /**
-     * Parse HTML to extract pronunciation and definition
+     * Parse HTML to extract pronunciation, definition, and audio URLs
      * @param {string} html - The HTML content from Oxford Dictionary
      * @param {string} word - The original word
-     * @returns {Object} - Object containing pronunciation and definition
+     * @returns {Object} - Object containing pronunciation, definition, and audio URLs
      */
     parseHtml(html, word) {
         // Create a temporary DOM element to parse the HTML
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         
-        // Extract pronunciation
-        let pronunciation = 'Pronunciation not available';
-        const phoneticsElement = doc.querySelector('.phons_br');
-        
-        if (phoneticsElement) {
-            const phoneticSpan = phoneticsElement.querySelector('.phon');
+        // Extract British pronunciation
+        let pronunciationBr = 'Pronunciation not available';
+        const phoneticsBrElement = doc.querySelector('.phons_br');
+        if (phoneticsBrElement) {
+            const phoneticSpan = phoneticsBrElement.querySelector('.phon');
             if (phoneticSpan) {
-                pronunciation = phoneticSpan.textContent;
+                pronunciationBr = phoneticSpan.textContent;
             }
+        }
+        
+        // Extract American pronunciation
+        let pronunciationUs = 'Pronunciation not available';
+        const phoneticsUsElement = doc.querySelector('.phons_n_am');
+        if (phoneticsUsElement) {
+            const phoneticSpan = phoneticsUsElement.querySelector('.phon');
+            if (phoneticSpan) {
+                pronunciationUs = phoneticSpan.textContent;
+            }
+        }
+        
+        // Extract audio URLs
+        let audioBrUrl = null;
+        let audioUsUrl = null;
+        
+        // Try to find the audio elements
+        const audioBrElement = doc.querySelector('.phons_br .sound');
+        const audioUsElement = doc.querySelector('.phons_n_am .sound');
+        
+        if (audioBrElement && audioBrElement.getAttribute('data-src-mp3')) {
+            audioBrUrl = audioBrElement.getAttribute('data-src-mp3');
+        }
+        
+        if (audioUsElement && audioUsElement.getAttribute('data-src-mp3')) {
+            audioUsUrl = audioUsElement.getAttribute('data-src-mp3');
         }
         
         // Extract definition
@@ -86,7 +116,10 @@ class DictionaryService {
         
         // Return the extracted information
         return {
-            pronunciation,
+            pronunciationBr,
+            pronunciationUs,
+            audioBrUrl,
+            audioUsUrl,
             definition
         };
     }
@@ -95,11 +128,11 @@ class DictionaryService {
      * Fallback method if the Oxford API doesn't work
      * This creates mock data for demonstration purposes
      * @param {string} word - The word to generate mock data for
-     * @returns {Object} - Object containing mock pronunciation and definition
+     * @returns {Object} - Object containing mock pronunciation, audio URLs, and definition
      */
     getMockWordInfo(word) {
-        // Mock IPA pronunciations for common words
-        const commonPronunciations = {
+        // Mock IPA pronunciations for common words (British)
+        const commonPronunciationsBr = {
             'hello': '/həˈləʊ/',
             'goodbye': '/ˌɡʊdˈbaɪ/',
             'thank you': '/ˈθæŋk juː/',
@@ -120,6 +153,30 @@ class DictionaryService {
             'time': '/taɪm/',
             'money': '/ˈmʌni/',
             'work': '/wɜːk/'
+        };
+        
+        // Mock IPA pronunciations for common words (American)
+        const commonPronunciationsUs = {
+            'hello': '/həˈloʊ/',
+            'goodbye': '/ˌɡʊdˈbaɪ/',
+            'thank you': '/ˈθæŋk juː/',
+            'sorry': '/ˈsɑːri/',
+            'friend': '/frend/',
+            'family': '/ˈfæməli/',
+            'love': '/lʌv/',
+            'happy': '/ˈhæpi/',
+            'sad': '/sæd/',
+            'food': '/fuːd/',
+            'water': '/ˈwɔːtər/',
+            'book': '/bʊk/',
+            'school': '/skuːl/',
+            'teacher': '/ˈtiːtʃər/',
+            'student': '/ˈstuːdənt/',
+            'house': '/haʊs/',
+            'car': '/kɑːr/',
+            'time': '/taɪm/',
+            'money': '/ˈmʌni/',
+            'work': '/wɜːrk/'
         };
         
         // Mock definitions
@@ -146,10 +203,42 @@ class DictionaryService {
             'work': 'Activity involving mental or physical effort done in order to achieve a purpose or result.'
         };
         
+        // Generate audio URLs for text-to-speech fallback
+        const cleanWord = word.trim().toLowerCase().replace(/\s+/g, '%20');
+        const ttsUrlBr = `https://texttospeech.responsivevoice.org/v1/text:synthesize?text=${cleanWord}&lang=en-GB&engine=g1&name=&pitch=0.5&rate=0.5&volume=1&key=PL3QYYuV&gender=female`;
+        const ttsUrlUs = `https://texttospeech.responsivevoice.org/v1/text:synthesize?text=${cleanWord}&lang=en-US&engine=g1&name=&pitch=0.5&rate=0.5&volume=1&key=PL3QYYuV&gender=female`;
+        
         return {
-            pronunciation: commonPronunciations[word.toLowerCase()] || `/ˈ${word}/`,
+            pronunciationBr: commonPronunciationsBr[word.toLowerCase()] || `/ˈ${word}/`,
+            pronunciationUs: commonPronunciationsUs[word.toLowerCase()] || `/ˈ${word}/`,
+            audioBrUrl: ttsUrlBr,
+            audioUsUrl: ttsUrlUs,
             definition: commonDefinitions[word.toLowerCase()] || `A word meaning "${word}".`
         };
+    }
+    
+    /**
+     * Play pronunciation audio
+     * @param {string} audioUrl - URL of the audio file to play
+     * @returns {Promise} - Promise that resolves when audio plays or rejects on error
+     */
+    playAudio(audioUrl) {
+        return new Promise((resolve, reject) => {
+            if (!audioUrl) {
+                reject(new Error('No audio URL provided'));
+                return;
+            }
+            
+            const audio = new Audio(audioUrl);
+            
+            audio.onended = () => resolve();
+            audio.onerror = (error) => reject(error);
+            
+            audio.play().catch(error => {
+                console.error('Error playing audio:', error);
+                reject(error);
+            });
+        });
     }
 }
 

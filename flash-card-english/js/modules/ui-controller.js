@@ -10,11 +10,14 @@ class UIController {
         this.modeToggle = document.getElementById('mode-toggle');
         this.manualModeSection = document.getElementById('manual-mode');
         this.autoModeSection = document.getElementById('auto-mode');
-        this.wordListContainer = document.getElementById('word-list');
+        this.wordListContainer = document.getElementById('word-list-container');
+        this.wordList = document.getElementById('word-list');
         this.startButton = document.getElementById('start-button');
         this.flashcardContainer = document.getElementById('flashcard-container');
         this.wordDisplay = document.getElementById('word-display');
         this.pronunciationDisplay = document.getElementById('pronunciation');
+        this.pronunciationBrButton = document.getElementById('pronunciation-br-button');
+        this.pronunciationUsButton = document.getElementById('pronunciation-us-button');
         this.definitionDisplay = document.getElementById('definition');
         this.translationInput = document.getElementById('translation-input');
         this.checkButton = document.getElementById('check-button');
@@ -39,7 +42,7 @@ class UIController {
      * @param {Function} toggleWordSelection - Function to handle word selection
      */
     populateWordList(wordData, toggleWordSelection) {
-        this.wordListContainer.innerHTML = '';
+        this.wordList.innerHTML = '';
         
         Object.keys(wordData).forEach(word => {
             const wordItem = document.createElement('div');
@@ -49,8 +52,15 @@ class UIController {
             
             wordItem.addEventListener('click', () => toggleWordSelection(wordItem));
             
-            this.wordListContainer.appendChild(wordItem);
+            this.wordList.appendChild(wordItem);
         });
+        
+        // Make sure the word list container has a fixed height and scrolling
+        this.wordListContainer.style.maxHeight = '300px';
+        this.wordListContainer.style.overflowY = 'auto';
+        this.wordListContainer.style.border = '1px solid #ddd';
+        this.wordListContainer.style.borderRadius = '5px';
+        this.wordListContainer.style.padding = '10px';
     }
 
     /**
@@ -100,6 +110,49 @@ class UIController {
     }
 
     /**
+     * Display a flashcard
+     * @param {Object} flashcardData - The flashcard data
+     */
+    displayFlashcard(flashcardData) {
+        this.wordDisplay.textContent = flashcardData.word;
+        
+        // Display both pronunciations if available
+        const brPron = flashcardData.pronunciationBr || '';
+        const usPron = flashcardData.pronunciationUs || '';
+        
+        // If we have both pronunciations, show them both with labels
+        if (brPron && usPron && brPron !== usPron) {
+            this.pronunciationDisplay.innerHTML = `<span class="uk-pron">${brPron}</span> <span class="us-pron">${usPron}</span>`;
+        } else {
+            // Otherwise just show one pronunciation
+            this.pronunciationDisplay.textContent = brPron || usPron || '';
+        }
+        
+        // Store audio URLs for the pronunciation buttons
+        this.pronunciationBrButton.dataset.audioUrl = flashcardData.audioBrUrl || '';
+        this.pronunciationUsButton.dataset.audioUrl = flashcardData.audioUsUrl || '';
+        
+        // Enable/disable pronunciation buttons based on available audio
+        this.pronunciationBrButton.disabled = !flashcardData.audioBrUrl;
+        this.pronunciationUsButton.disabled = !flashcardData.audioUsUrl;
+        
+        this.definitionDisplay.textContent = flashcardData.definition || '';
+        this.translationInput.value = '';
+        this.feedbackElement.textContent = '';
+        this.feedbackElement.className = 'feedback';
+        
+        // Show the flashcard container
+        this.flashcardContainer.style.display = 'block';
+        
+        // Reset button states
+        this.checkButton.disabled = false;
+        this.nextButton.disabled = true;
+        
+        // Focus on the answer input
+        this.translationInput.focus();
+    }
+
+    /**
      * Show loading indicator
      * @param {boolean} isLoading - Whether to show or hide the loading indicator
      */
@@ -141,16 +194,15 @@ class UIController {
     }
 
     /**
-     * Reset UI for a new word
+     * Reset word UI for a new word
      */
     resetWordUI() {
         this.translationInput.value = '';
-        this.feedbackElement.className = 'feedback';
         this.feedbackElement.textContent = '';
-        
-        // Enable check button, disable next button
+        this.feedbackElement.className = 'feedback';
         this.checkButton.disabled = false;
         this.nextButton.disabled = true;
+        this.nextButton.style.display = 'inline-block'; // Ensure the next button is visible
     }
 
     /**

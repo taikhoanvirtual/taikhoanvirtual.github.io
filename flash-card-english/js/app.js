@@ -61,6 +61,10 @@ class FlashcardApp {
         // Epoch navigation
         uiController.prevEpochButton.addEventListener('click', () => this.navigateEpoch(-1));
         uiController.nextEpochButton.addEventListener('click', () => this.navigateEpoch(1));
+        
+        // Pronunciation buttons
+        uiController.pronunciationBrButton.addEventListener('click', this.playPronunciation.bind(this, 'br'));
+        uiController.pronunciationUsButton.addEventListener('click', this.playPronunciation.bind(this, 'us'));
     }
 
     /**
@@ -140,15 +144,32 @@ class FlashcardApp {
             // Fetch pronunciation and definition from Oxford Dictionary
             const wordInfo = await dictionaryService.fetchWordInfo(currentWord);
             
-            // Update word display
-            uiController.showWord(currentWord, wordInfo.pronunciation, wordInfo.definition);
+            // Create flashcard data object with all the information
+            const flashcardData = {
+                word: currentWord,
+                pronunciationBr: wordInfo.pronunciationBr || wordInfo.pronunciation || '',
+                pronunciationUs: wordInfo.pronunciationUs || wordInfo.pronunciation || '',
+                audioBrUrl: wordInfo.audioBrUrl || '',
+                audioUsUrl: wordInfo.audioUsUrl || '',
+                definition: wordInfo.definition || ''
+            };
+            
+            // Update flashcard display
+            uiController.displayFlashcard(flashcardData);
         } catch (error) {
             console.error('Error fetching word info:', error);
-            uiController.showWord(
-                currentWord, 
-                'Pronunciation not available', 
-                'Definition not available'
-            );
+            
+            // Create flashcard data with default values
+            const flashcardData = {
+                word: currentWord,
+                pronunciationBr: 'Pronunciation not available',
+                pronunciationUs: 'Pronunciation not available',
+                audioBrUrl: '',
+                audioUsUrl: '',
+                definition: 'Definition not available'
+            };
+            
+            uiController.displayFlashcard(flashcardData);
         } finally {
             // Hide loading indicator
             uiController.showLoading(false);
@@ -205,6 +226,45 @@ class FlashcardApp {
         }
     }
 
+    /**
+     * Play pronunciation audio
+     * @param {string} type - The type of pronunciation ('br' for British, 'us' for American)
+     */
+    async playPronunciation(type) {
+        try {
+            const button = type === 'br' ? uiController.pronunciationBrButton : uiController.pronunciationUsButton;
+            const audioUrl = button.dataset.audioUrl;
+            
+            if (!audioUrl) {
+                throw new Error('No audio URL available');
+            }
+            
+            // Disable both buttons during playback
+            uiController.pronunciationBrButton.disabled = true;
+            uiController.pronunciationUsButton.disabled = true;
+            
+            // Add visual feedback
+            button.classList.add('playing');
+            
+            // Play the audio
+            await dictionaryService.playAudio(audioUrl);
+            
+            // Remove visual feedback
+            button.classList.remove('playing');
+            
+            // Re-enable buttons
+            uiController.pronunciationBrButton.disabled = !uiController.pronunciationBrButton.dataset.audioUrl;
+            uiController.pronunciationUsButton.disabled = !uiController.pronunciationUsButton.dataset.audioUrl;
+        } catch (error) {
+            console.error('Error playing pronunciation:', error);
+            uiController.showNotification('Could not play pronunciation audio');
+            
+            // Re-enable buttons
+            uiController.pronunciationBrButton.disabled = !uiController.pronunciationBrButton.dataset.audioUrl;
+            uiController.pronunciationUsButton.disabled = !uiController.pronunciationUsButton.dataset.audioUrl;
+        }
+    }
+    
     /**
      * End flashcard session
      */
