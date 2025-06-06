@@ -100,15 +100,22 @@ class FlashcardApp {
             }
             
             this.sessionData = sessionData;
-            this.sessionModeDisplay.textContent = `${sessionData.mode.charAt(0).toUpperCase() + sessionData.mode.slice(1)} Mode`;
             
-            if (sessionData.mode === 'manual') {
-                // Use selected words from session data
-                this.selectedWords = sessionData.selectedWords;
-            } else {
-                // Use words from the current epoch
-                const epochWords = flashcardManager.epochs[sessionData.currentEpoch];
-                this.selectedWords = [...epochWords];
+            // Set mode display with word count
+            const wordCount = sessionData.selectedWords ? sessionData.selectedWords.length : 0;
+            this.sessionModeDisplay.textContent = `${sessionData.mode.charAt(0).toUpperCase() + sessionData.mode.slice(1)} Mode - ${wordCount} words`;
+            
+            // Use selected words from session data for both manual and auto modes
+            this.selectedWords = sessionData.selectedWords || [];
+            
+            if (this.selectedWords.length === 0) {
+                this.showNotification('No words selected. Redirecting to home page...');
+                
+                // Redirect to index page after a short delay
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+                return;
             }
             
             // Start the session

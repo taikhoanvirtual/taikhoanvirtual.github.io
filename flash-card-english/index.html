@@ -28,23 +28,32 @@
                 </div>
             </div>
             
-            <!-- Word Selection -->
+            <!-- Manual Mode Section -->
             <div id="manual-mode" class="word-selection active">
-                <h3>Select Words (up to 7)</h3>
-                <div id="word-list-container" class="word-list-container">
+                <h3>Select Words to Study <span class="word-count">(<span id="selected-count">0</span> selected)</span></h3>
+                <p class="mode-description">Click on words to select them for your study session. You can select as many words as you want.</p>
+                <div class="word-list-container">
                     <div id="word-list" class="word-list"></div>
                 </div>
-                <button id="start-manual-button" class="start-button" disabled>Start Manual Session</button>
+                <div class="buttons">
+                    <button id="clear-selection-button" class="secondary-button">Clear Selection</button>
+                    <button id="start-manual-button" class="start-button" disabled>Start Manual Session</button>
+                </div>
             </div>
             
             <div id="auto-mode" class="word-selection">
-                <h3>Select Epoch</h3>
-                <div id="epoch-navigation" class="epoch-navigation">
-                    <button id="prev-epoch" class="nav-button">&lt;</button>
-                    <span>Epoch <span id="current-epoch">1</span> of <span id="total-epochs">10</span></span>
-                    <button id="next-epoch" class="nav-button">&gt;</button>
+                <h3>Random Word Selection</h3>
+                <p class="mode-description">Enter the number of words you want to study and click "Randomize" to select random words.</p>
+                <div class="random-selection">
+                    <div class="input-group">
+                        <label for="word-count-input">Number of words:</label>
+                        <input type="number" id="word-count-input" min="1" max="100" value="7">
+                    </div>
+                    <div class="buttons">
+                        <button id="randomize-button" class="secondary-button">Randomize</button>
+                        <button id="start-auto-button" class="start-button" disabled>Start Random Session</button>
+                    </div>
                 </div>
-                <button id="start-auto-button" class="start-button">Start Automatic Session</button>
             </div>
             
             <!-- Progress History -->

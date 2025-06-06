@@ -32,12 +32,12 @@ class IndexApp {
         // Manual mode elements
         this.wordList = document.getElementById('word-list');
         this.startManualButton = document.getElementById('start-manual-button');
+        this.clearSelectionButton = document.getElementById('clear-selection-button');
+        this.selectedCountDisplay = document.getElementById('selected-count');
         
         // Auto mode elements
-        this.currentEpochDisplay = document.getElementById('current-epoch');
-        this.totalEpochsDisplay = document.getElementById('total-epochs');
-        this.prevEpochButton = document.getElementById('prev-epoch');
-        this.nextEpochButton = document.getElementById('next-epoch');
+        this.wordCountInput = document.getElementById('word-count-input');
+        this.randomizeButton = document.getElementById('randomize-button');
         this.startAutoButton = document.getElementById('start-auto-button');
         
         // History container
@@ -57,9 +57,14 @@ class IndexApp {
         this.startManualButton.addEventListener('click', this.startManualSession.bind(this));
         this.startAutoButton.addEventListener('click', this.startAutoSession.bind(this));
         
-        // Epoch navigation
-        this.prevEpochButton.addEventListener('click', () => this.navigateEpoch(-1));
-        this.nextEpochButton.addEventListener('click', () => this.navigateEpoch(1));
+        // Clear selection button
+        this.clearSelectionButton.addEventListener('click', this.clearWordSelection.bind(this));
+        
+        // Random word selection
+        this.randomizeButton.addEventListener('click', this.randomizeWordSelection.bind(this));
+        
+        // Word count input validation
+        this.wordCountInput.addEventListener('input', this.validateWordCount.bind(this));
     }
 
     /**
@@ -70,17 +75,12 @@ class IndexApp {
             // Populate word list for manual mode
             this.populateWordList();
             
-            // Create epochs for automatic mode
-            flashcardManager.createEpochs(wordData);
-            
-            // Update epoch navigation
-            this.updateEpochNavigation(
-                flashcardManager.getCurrentEpoch(),
-                flashcardManager.getTotalEpochs()
-            );
-            
             // Load previously selected words if any
             await this.loadSelectedWords();
+            
+            // Set default word count for automatic mode
+            this.wordCountInput.value = 7;
+            this.validateWordCount();
         } catch (error) {
             console.error('Error initializing app:', error);
             this.showNotification('Error loading word data. Please try again.');
@@ -100,11 +100,6 @@ class IndexApp {
         } else {
             this.manualModeSection.classList.remove('active');
             this.autoModeSection.classList.add('active');
-            
-            this.updateEpochNavigation(
-                flashcardManager.getCurrentEpoch(),
-                flashcardManager.getTotalEpochs()
-            );
         }
     }
 
@@ -141,13 +136,7 @@ class IndexApp {
             wordItem.classList.remove('selected');
             flashcardManager.selectedWords = flashcardManager.selectedWords.filter(w => w !== word);
         } else {
-            // Check if already selected 7 words
-            if (flashcardManager.selectedWords.length >= 7) {
-                this.showNotification('You can only select up to 7 words.');
-                return;
-            }
-            
-            // Select word
+            // Select word (no limit)
             wordItem.classList.add('selected');
             flashcardManager.selectedWords.push(word);
         }
@@ -157,6 +146,9 @@ class IndexApp {
         
         // Enable/disable start button based on selection
         this.startManualButton.disabled = flashcardManager.selectedWords.length === 0;
+        
+        // Update selected count display
+        this.updateSelectedCountDisplay();
     }
 
     /**
@@ -179,6 +171,9 @@ class IndexApp {
                 
                 // Enable start button if words are selected
                 this.startManualButton.disabled = selectedWords.length === 0;
+                
+                // Update selected count display
+                this.updateSelectedCountDisplay();
             }
         } catch (error) {
             console.error('Error loading selected words:', error);
@@ -186,26 +181,83 @@ class IndexApp {
     }
 
     /**
-     * Navigate between epochs
-     * @param {number} direction - The direction to navigate (-1 for previous, 1 for next)
+     * Update selected count display
      */
-    navigateEpoch(direction) {
-        const newEpoch = flashcardManager.navigateEpoch(direction);
-        this.updateEpochNavigation(newEpoch, flashcardManager.getTotalEpochs());
-    }
-
-    /**
-     * Update epoch navigation display
-     * @param {number} currentEpoch - The current epoch
-     * @param {number} totalEpochs - The total number of epochs
-     */
-    updateEpochNavigation(currentEpoch, totalEpochs) {
-        this.currentEpochDisplay.textContent = currentEpoch + 1; // 1-based for display
-        this.totalEpochsDisplay.textContent = totalEpochs;
+    updateSelectedCountDisplay() {
+        if (this.selectedCountDisplay) {
+            this.selectedCountDisplay.textContent = flashcardManager.selectedWords.length;
+        }
         
-        // Disable prev/next buttons at boundaries
-        this.prevEpochButton.disabled = currentEpoch === 0;
-        this.nextEpochButton.disabled = currentEpoch === totalEpochs - 1;
+        // Enable/disable clear selection button based on selection
+        if (this.clearSelectionButton) {
+            this.clearSelectionButton.disabled = flashcardManager.selectedWords.length === 0;
+        }
+    }
+    
+    /**
+     * Clear all word selections
+     */
+    async clearWordSelection() {
+        // Remove selected class from all word items
+        document.querySelectorAll('.word-item.selected').forEach(item => {
+            item.classList.remove('selected');
+        });
+        
+        // Clear selected words array
+        flashcardManager.selectedWords = [];
+        
+        // Update UI
+        this.updateSelectedCountDisplay();
+        
+        // Disable start button
+        this.startManualButton.disabled = true;
+        
+        // Save empty selection to IndexedDB
+        await dbService.saveSelectedWords([]);
+        
+        // Show notification
+        this.showNotification('All selections cleared');
+    }
+    
+    /**
+     * Validate word count input
+     */
+    validateWordCount() {
+        const value = parseInt(this.wordCountInput.value);
+        const totalWords = Object.keys(wordData).length;
+        
+        // Ensure value is a number between 1 and total words
+        if (isNaN(value) || value < 1) {
+            this.wordCountInput.value = 1;
+        } else if (value > totalWords) {
+            this.wordCountInput.value = totalWords;
+        }
+        
+        // Enable/disable randomize button
+        this.randomizeButton.disabled = false;
+    }
+    
+    /**
+     * Randomize word selection for automatic mode
+     */
+    randomizeWordSelection() {
+        const wordCount = parseInt(this.wordCountInput.value);
+        const allWords = Object.keys(wordData);
+        
+        // Shuffle all words
+        const shuffled = [...allWords].sort(() => 0.5 - Math.random());
+        
+        // Take the requested number of words
+        const randomWords = shuffled.slice(0, wordCount);
+        
+        // Store in flashcard manager
+        flashcardManager.randomWords = randomWords;
+        
+        // Enable start button
+        this.startAutoButton.disabled = false;
+        
+        // Show notification
+        this.showNotification(`${wordCount} random words selected!`);
     }
 
     /**
@@ -232,19 +284,16 @@ class IndexApp {
      * Start automatic session
      */
     async startAutoSession() {
-        const currentEpoch = flashcardManager.getCurrentEpoch();
-        const epochWords = flashcardManager.epochs[currentEpoch];
-        
-        if (!epochWords || epochWords.length === 0) {
-            this.showNotification('No words available in this epoch.');
+        if (!flashcardManager.randomWords || flashcardManager.randomWords.length === 0) {
+            this.showNotification('Please select random words first.');
             return;
         }
         
         // Save session data to IndexedDB
         await dbService.saveSessionData({
             mode: 'auto',
-            selectedWords: null,
-            currentEpoch: currentEpoch
+            selectedWords: flashcardManager.randomWords,
+            currentEpoch: null
         });
         
         // Navigate to flashcard page
