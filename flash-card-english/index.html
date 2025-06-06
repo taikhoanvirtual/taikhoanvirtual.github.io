@@ -3,19 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flash Card English</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f9f9f9; text-align: center; margin-top: 10%; }
-        h1 { color: #333; }
-        .card { border: 1px solid #ccc; padding: 20px; margin: 20px; display: inline-block; }
-    </style>
+    <title>Flash Card English - Learn English Vocabulary</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Flash Card English</h1>
-    <div class="card">
-        <h2>Word: Hello</h2>
-        <p>Translation: Xin chào</p>
+    <div class="container">
+        <h1>English Vocabulary Flashcards</h1>
+        <p>Learn English vocabulary with interactive flashcards</p>
+        
+        <!-- Mode Selection -->
+        <div class="mode-selection">
+            <div class="mode-toggle" id="mode-toggle">
+                <input type="radio" id="manual-mode-radio" name="mode" value="manual" checked>
+                <label for="manual-mode-radio">Manual Mode</label>
+                
+                <input type="radio" id="auto-mode-radio" name="mode" value="auto">
+                <label for="auto-mode-radio">Automatic Mode</label>
+            </div>
+        </div>
+        
+        <!-- Word Selection -->
+        <div id="word-selection" class="word-selection active">
+            <!-- Manual Mode -->
+            <div id="manual-mode" class="manual-mode active">
+                <h3>Select 7 words to study</h3>
+                <div id="word-list" class="word-list"></div>
+            </div>
+            
+            <!-- Auto Mode -->
+            <div id="auto-mode" class="auto-mode">
+                <h3>Automatic Mode</h3>
+                <p>Words are automatically divided into epochs of 7 words each.</p>
+                
+                <!-- Epoch Navigation -->
+                <div id="epoch-navigation" class="epoch-navigation">
+                    <button id="prev-epoch" class="prev-epoch">Previous Epoch</button>
+                    <div>
+                        <span>Epoch </span>
+                        <span id="current-epoch">1</span>
+                        <span> of </span>
+                        <span id="total-epochs">3</span>
+                    </div>
+                    <button id="next-epoch" class="next-epoch">Next Epoch</button>
+                </div>
+            </div>
+            
+            <button id="start-button" class="start-button" disabled>Start Flashcards</button>
+        </div>
+        
+        <!-- Flashcard Container -->
+        <div id="flashcard-container" class="flashcard-container">
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progress" class="progress"></div>
+                </div>
+                <div id="progress-text" class="progress-text">1 of 7</div>
+            </div>
+            
+            <!-- Flashcard -->
+            <div class="flashcard">
+                <div id="word-display" class="word-display">Word</div>
+                
+                <!-- Loading indicator -->
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading word information...</p>
+                </div>
+                
+                <div id="pronunciation" class="pronunciation">Pronunciation</div>
+                <div id="definition" class="definition">Definition</div>
+                
+                <div class="translation-input">
+                    <label for="translation-input">Enter Vietnamese translation:</label>
+                    <input type="text" id="translation-input" placeholder="Type your answer here...">
+                </div>
+                
+                <div id="attempts" class="attempts">Attempts left: 3</div>
+                <div id="feedback" class="feedback"></div>
+                
+                <div class="buttons">
+                    <button id="check-button" class="check-button">Check</button>
+                    <button id="next-button" class="next-button" disabled>Next Word</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Container -->
+        <div id="results-container" class="results-container">
+            <h2>Session Complete!</h2>
+            <p>You've completed this flashcard session.</p>
+            
+            <div class="buttons">
+                <button id="restart-button" class="start-button" onclick="window.location.reload()">Start New Session</button>
+            </div>
+        </div>
     </div>
-    <!-- Add more flash cards here -->
+    
+    <!-- Data -->
+    <script src="data/data.js"></script>
+    
+    <!-- Services -->
+    <script src="js/services/dictionary-service.js"></script>
+    
+    <!-- Modules -->
+    <script src="js/modules/ui-controller.js"></script>
+    <script src="js/modules/flashcard-manager.js"></script>
+    
+    <!-- Main App -->
+    <script src="js/app.js"></script>
 </body>
 </html>
