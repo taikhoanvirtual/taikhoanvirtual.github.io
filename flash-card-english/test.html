@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard App Test Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-button {
+            margin: 5px;
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .test-button:hover {
+            background-color: #3a7bc8;
+        }
+        .test-result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Flashcard App Test Page</h1>
+        <p>Use this page to test IndexedDB functionality and data sharing between pages</p>
+        
+        <div class="test-section">
+            <h2>IndexedDB Database Test</h2>
+            <button id="test-db-connection" class="test-button">Test DB Connection</button>
+            <div id="db-result" class="test-result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Session Data Test</h2>
+            <button id="save-test-session" class="test-button">Save Test Session</button>
+            <button id="get-test-session" class="test-button">Get Session Data</button>
+            <div id="session-result" class="test-result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Selected Words Test</h2>
+            <button id="save-test-words" class="test-button">Save Test Words</button>
+            <button id="get-test-words" class="test-button">Get Selected Words</button>
+            <div id="words-result" class="test-result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Progress History Test</h2>
+            <button id="save-test-progress" class="test-button">Save Test Progress</button>
+            <button id="get-test-progress" class="test-button">Get Progress History</button>
+            <div id="progress-result" class="test-result"></div>
+        </div>
+        
+        <div class="buttons">
+            <a href="index.html" class="button home-button">Back to Home</a>
+        </div>
+    </div>
+
+    <script src="js/data/word-data.js"></script>
+    <script src="js/services/db-service.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Test DB Connection
+            document.getElementById('test-db-connection').addEventListener('click', async () => {
+                const resultElement = document.getElementById('db-result');
+                try {
+                    await dbService.init();
+                    resultElement.textContent = 'Database connection successful!';
+                    resultElement.style.color = 'green';
+                } catch (error) {
+                    resultElement.textContent = `Error: ${error.message}`;
+                    resultElement.style.color = 'red';
+                }
+            });
+            
+            // Test Session Data
+            document.getElementById('save-test-session').addEventListener('click', async () => {
+                const resultElement = document.getElementById('session-result');
+                try {
+                    const testSession = {
+                        mode: 'manual',
+                        selectedWords: ['apple', 'banana', 'cherry'],
+                        currentEpoch: null
+                    };
+                    
+                    await dbService.saveSessionData(testSession);
+                    resultElement.textContent = 'Test session data saved successfully!';
+                    resultElement.style.color = 'green';
+                } catch (error) {
+                    resultElement.textContent = `Error: ${error.message}`;
+                    resultElement.style.color = 'red';
+                }
+            });
+            
+            document.getElementById('get-test-session').addEventListener('click', async () => {
+                const resultElement = document.getElementById('session-result');
+                try {
+                    const sessionData = await dbService.getSessionData();
+                    resultElement.textContent = sessionData ? 
+                        JSON.stringify(sessionData, null, 2) : 
+                        'No session data found';
+                    resultElement.style.color = 'blue';
+                } catch (error) {
+                    resultElement.textContent = `Error: ${error.message}`;
+                    resultElement.style.color = 'red';
+                }
+            });
+            
+            // Test Selected Words
+            document.getElementById('save-test-words').addEventListener('click', async () => {
+                const resultElement = document.getElementById('words-result');
+                try {
+                    const testWords = ['dog', 'elephant', 'fox', 'giraffe'];
+                    
+                    await dbService.saveSelectedWords(testWords);
+                    resultElement.textContent = 'Test words saved successfully!';
+                    resultElement.style.color = 'green';
+                } catch (error) {
+                    resultElement.textContent = `Error: ${error.message}`;
+                    resultElement.style.color = 'red';
+                }
+            });
+            
+            document.getElementById('get-test-words').addEventListener('click', async () => {
+                const resultElement = document.getElementById('words-result');
+                try {
+                    const selectedWords = await dbService.getSelectedWords();
+                    resultElement.textContent = selectedWords ? 
+                        JSON.stringify(selectedWords, null, 2) : 
+                        'No selected words found';
+                    resultElement.style.color = 'blue';
+                } catch (error) {
+                    resultElement.textContent = `Error: ${error.message}`;
+                    resultElement.style.color = 'red';
+                }
+            });
+            
+            // Test Progress History
+            document.getElementById('save-test-progress').addEventListener('click', async () => {
+                const resultElement = document.getElementById('progress-result');
+                try {
+                    const testProgress = {
+                        mode: 'auto',
+                        correct: 5,
+                        incorrect: 2,
+                        accuracy: 71,
+                        date: new Date().toISOString()
+                    };
+                    
+                    await dbService.saveProgress(testProgress);
+                    resultElement.textContent = 'Test progress saved successfully!';
+                    resultElement.style.color = 'green';
+                } catch (error) {
+                    resultElement.textContent = `Error: ${error.message}`;
+                    resultElement.style.color = 'red';
+                }
+            });
+            
+            document.getElementById('get-test-progress').addEventListener('click', async () => {
+                const resultElement = document.getElementById('progress-result');
+                try {
+                    const progressHistory = await dbService.getProgressHistory();
+                    resultElement.textContent = progressHistory ? 
+                        JSON.stringify(progressHistory, null, 2) : 
+                        'No progress history found';
+                    resultElement.style.color = 'blue';
+                } catch (error) {
+                    resultElement.textContent = `Error: ${error.message}`;
+                    resultElement.style.color = 'red';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

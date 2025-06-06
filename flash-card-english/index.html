@@ -3,126 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flash Card English - Learn English Vocabulary</title>
+    <title>English Vocabulary Flashcards</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>English Vocabulary Flashcards</h1>
-        <p>Learn English vocabulary with interactive flashcards</p>
+        <header>
+            <h1>English Vocabulary Flashcards</h1>
+        </header>
         
-        <!-- Mode Selection -->
-        <div class="mode-selection">
-            <div class="mode-toggle" id="mode-toggle">
-                <input type="radio" id="manual-mode-radio" name="mode" value="manual" checked>
-                <label for="manual-mode-radio">Manual Mode</label>
-                
-                <input type="radio" id="auto-mode-radio" name="mode" value="auto">
-                <label for="auto-mode-radio">Automatic Mode</label>
+        <main>
+            <!-- Mode Selection -->
+            <div class="mode-selection">
+                <h2>Select Mode</h2>
+                <div class="mode-toggle" id="mode-toggle">
+                    <label>
+                        <input type="radio" name="mode" value="manual" checked>
+                        <span>Manual</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="mode" value="auto">
+                        <span>Automatic</span>
+                    </label>
+                </div>
             </div>
-        </div>
-        
-        <!-- Word Selection -->
-        <div id="word-selection" class="word-selection active">
-            <!-- Manual Mode -->
-            <div id="manual-mode" class="manual-mode active">
-                <h3>Select 7 words to study</h3>
+            
+            <!-- Word Selection -->
+            <div id="manual-mode" class="word-selection active">
+                <h3>Select Words (up to 7)</h3>
                 <div id="word-list-container" class="word-list-container">
                     <div id="word-list" class="word-list"></div>
                 </div>
+                <button id="start-manual-button" class="start-button" disabled>Start Manual Session</button>
             </div>
             
-            <!-- Auto Mode -->
-            <div id="auto-mode" class="auto-mode">
-                <h3>Automatic Mode</h3>
-                <p>Words are automatically divided into epochs of 7 words each.</p>
-                
-                <!-- Epoch Navigation -->
+            <div id="auto-mode" class="word-selection">
+                <h3>Select Epoch</h3>
                 <div id="epoch-navigation" class="epoch-navigation">
-                    <button id="prev-epoch" class="prev-epoch">Previous Epoch</button>
-                    <div>
-                        <span>Epoch </span>
-                        <span id="current-epoch">1</span>
-                        <span> of </span>
-                        <span id="total-epochs">3</span>
-                    </div>
-                    <button id="next-epoch" class="next-epoch">Next Epoch</button>
+                    <button id="prev-epoch" class="nav-button">&lt;</button>
+                    <span>Epoch <span id="current-epoch">1</span> of <span id="total-epochs">10</span></span>
+                    <button id="next-epoch" class="nav-button">&gt;</button>
                 </div>
+                <button id="start-auto-button" class="start-button">Start Automatic Session</button>
             </div>
             
-            <button id="start-button" class="start-button" disabled>Start Flashcards</button>
-        </div>
+            <!-- Progress History -->
+            <div class="progress-history">
+                <h3>Recent Progress</h3>
+                <div id="history-container" class="history-container">
+                    <p>No recent sessions found.</p>
+                </div>
+            </div>
+        </main>
         
-        <!-- Flashcard Container -->
-        <div id="flashcard-container" class="flashcard-container">
-            <!-- Progress Bar -->
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div id="progress" class="progress"></div>
-                </div>
-                <div id="progress-text" class="progress-text">1 of 7</div>
-            </div>
-            
-            <!-- Flashcard -->
-            <div class="flashcard">
-                <div id="word-display" class="word-display">Word</div>
-                
-                <!-- Loading indicator -->
-                <div id="loading" class="loading">
-                    <div class="spinner"></div>
-                    <p>Loading word information...</p>
-                </div>
-                
-                <div class="pronunciation-container">
-                    <div id="pronunciation" class="pronunciation">Pronunciation</div>
-                    <div class="pronunciation-buttons">
-                        <button id="pronunciation-br-button" class="pronunciation-button uk" title="Play British pronunciation">
-                            <span>🇬🇧</span>
-                        </button>
-                        <button id="pronunciation-us-button" class="pronunciation-button us" title="Play American pronunciation">
-                            <span>🇺🇸</span>
-                        </button>
-                    </div>
-                </div>
-                <div id="definition" class="definition">Definition</div>
-                
-                <div class="translation-input">
-                    <label for="translation-input">Enter Vietnamese translation:</label>
-                    <input type="text" id="translation-input" placeholder="Type your answer here...">
-                </div>
-                
-                <div id="attempts" class="attempts">Attempts left: 3</div>
-                <div id="feedback" class="feedback"></div>
-                
-                <div class="buttons">
-                    <button id="check-button" class="check-button">Check</button>
-                    <button id="next-button" class="next-button" disabled>Next Word</button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Results Container -->
-        <div id="results-container" class="results-container">
-            <h2>Session Complete!</h2>
-            <p>You've completed this flashcard session.</p>
-            
-            <div class="buttons">
-                <button id="restart-button" class="start-button" onclick="window.location.reload()">Start New Session</button>
-            </div>
-        </div>
+        <footer>
+            <p>&copy; 2023 English Vocabulary Flashcards</p>
+        </footer>
     </div>
-    
+
     <!-- Data -->
     <script src="data/data.js"></script>
-    
+
     <!-- Services -->
+    <script src="js/services/db-service.js"></script>
     <script src="js/services/dictionary-service.js"></script>
-    
+
     <!-- Modules -->
-    <script src="js/modules/ui-controller.js"></script>
     <script src="js/modules/flashcard-manager.js"></script>
-    
+    <script src="js/modules/ui-controller.js"></script>
+
     <!-- Main App -->
-    <script src="js/app.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
