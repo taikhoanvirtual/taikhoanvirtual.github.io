@@ -1,10 +1,10 @@
 # English Vocabulary Flashcards
 
-A simple, interactive web application to help Vietnamese users learn English vocabulary using flashcards. This application is built with pure HTML, CSS, and JavaScript without any frameworks or backend requirements. It features a modular design with separate pages for different functionalities and uses IndexedDB for data persistence between pages.
+A comprehensive, interactive web application to help Vietnamese users learn English vocabulary using flashcards and exercises. This application is built with pure HTML, CSS, and JavaScript without any frameworks or backend requirements. It features a modular design with separate pages for different functionalities, uses IndexedDB for data persistence between pages, and integrates with Oxford Learners Dictionary for real-time dictionary data.
 
 ## 📋 Overview
 
-This flashcard application helps users learn English vocabulary by presenting words and allowing users to input their Vietnamese translations. The application fetches pronunciation and definitions from the Oxford Learners Dictionary to provide comprehensive learning resources. The application is split into separate HTML pages for better organization and uses IndexedDB to share data between pages, allowing for a seamless user experience.
+This flashcard application helps users learn English vocabulary by presenting words and allowing users to input their Vietnamese translations. The application fetches pronunciation and definitions from the Oxford Learners Dictionary to provide comprehensive learning resources. The application is split into separate HTML pages for better organization and uses IndexedDB to share data between pages, allowing for a seamless user experience. The application also includes word family exercises to help users learn related words and practice sentences to reinforce vocabulary in context.
 
 ## 🚀 Features
 
@@ -45,21 +45,30 @@ This flashcard application helps users learn English vocabulary by presenting wo
 ```
 flash-card-english/
 ├── css/
-│   └── styles.css              # All styling for the application
+│   ├── main.css               # Main CSS file that imports all component CSS files
+│   ├── base.css               # Base styles (variables, resets, typography)
+│   ├── layout.css             # Layout styles (containers, grids, flexbox)
+│   └── components/
+│       ├── buttons.css        # Button styles
+│       ├── flashcard.css      # Flashcard-specific styles
+│       ├── exercise.css       # Exercise-specific styles
+│       └── dictionary.css     # Dictionary-specific styles
 ├── js/
 │   ├── data/
-│   │   └── word-data.js        # English-Vietnamese word pairs
-│   ├── index.js                # Main page functionality
-│   ├── flashcard.js            # Flashcard session functionality
+│   │   └── new_data.js        # English-Vietnamese word pairs with family words
+│   ├── index.js               # Main page functionality
+│   ├── flashcard.js           # Flashcard session functionality
+│   ├── exercise.js            # Exercise page functionality
 │   ├── modules/
 │   │   ├── flashcard-manager.js # Core flashcard functionality
-│   │   └── ui-controller.js    # UI manipulation and DOM updates
+│   │   └── ui-controller.js   # UI manipulation and DOM updates
 │   └── services/
 │       ├── dictionary-service.js # Oxford Dictionary API integration
-│       └── db-service.js       # IndexedDB data persistence
-├── index.html                  # Main page with mode selection
-├── flashcard.html              # Flashcard session page
-└── test.html                   # Test page for IndexedDB functionality
+│       └── db-service.js      # IndexedDB data persistence
+├── index.html                 # Main page with mode selection
+├── flashcard.html             # Flashcard session page
+├── exercise.html              # Word family exercises page
+└── test.html                  # Test page for IndexedDB functionality
 ```
 
 ## 📄 File Descriptions
@@ -72,7 +81,15 @@ flash-card-english/
 
 ### CSS
 
-- **styles.css**: Contains all styling for the application, including responsive design for mobile devices.
+The CSS has been refactored into a modular structure for better maintainability:
+
+- **main.css**: Main CSS file that imports all component CSS files
+- **base.css**: Contains variables, resets, typography, and basic element styles
+- **layout.css**: Contains layout-related styles (containers, grids, flexbox utilities)
+- **components/buttons.css**: All button styles including audio buttons and exercise check buttons
+- **components/flashcard.css**: Styles for the flashcard component
+- **components/exercise.css**: Styles for the exercise component
+- **components/dictionary.css**: Styles specifically for the dictionary information display
 
 ### JavaScript
 
@@ -106,6 +123,7 @@ flash-card-english/
   - Parses HTML responses
   - Provides fallback mock data when API fails
   - Handles audio playback for pronunciations
+  - Caches dictionary data to improve performance
 
 - **db-service.js**: Manages IndexedDB operations for data persistence:
   - Stores and retrieves session data between pages
@@ -141,14 +159,28 @@ flash-card-english/
    - Session results are displayed with statistics
    - Progress is saved to IndexedDB and displayed in the history section
 
+5. **Word Family Exercises** (exercise.html):
+   - Users practice with word families (related words)
+   - For each word, users see:
+     - The main word and its Vietnamese meaning
+     - Family words to translate from English to Vietnamese
+     - Dictionary information for each family word (shown after correct answer)
+     - Audio pronunciation options for each family word
+   - Practice sentences using the word family in context
+   - Progress tracking during the exercise session
+
 ## 🌐 Technical Implementation
 
 - **No Backend Required**: Pure client-side application
 - **No Frameworks**: Built with vanilla HTML, CSS, and JavaScript
 - **Modular Design**: Separation of concerns with multiple HTML pages
 - **IndexedDB**: Client-side database for data persistence between pages
-- **CORS Handling**: Uses a proxy to fetch data from Oxford Dictionary
+- **CORS Handling**: Uses a proxy (allorigins.win) to fetch data from Oxford Dictionary
 - **Fallback Mechanism**: Provides mock data when API calls fail
+- **Unicode Normalization**: Uses `normalize('NFC')` to handle Vietnamese text comparison correctly
+- **CSS Modularity**: Refactored CSS into multiple files for better maintainability
+- **Dictionary Integration**: Real-time dictionary data fetching and caching
+- **Audio Playback**: HTML5 Audio API for pronunciation playback
 - **Audio Integration**: Plays pronunciation audio from Oxford Dictionary
 
 ## 📱 Responsive Design
