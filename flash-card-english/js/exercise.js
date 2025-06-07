@@ -211,8 +211,8 @@ class ExerciseApp {
     checkFamilyAnswer(familyItem) {
         const input = familyItem.querySelector('.exercise-input');
         const feedback = familyItem.querySelector('.exercise-feedback');
-        const userAnswer = input.value.trim().toLowerCase();
-        const correctAnswer = input.dataset.correct.toLowerCase();
+        const userAnswer = input.value.trim().toLowerCase().normalize('NFC');
+        const correctAnswer = input.dataset.correct.toLowerCase().normalize('NFC');
         
         if (userAnswer === correctAnswer) {
             feedback.textContent = 'Correct! 🎉';
@@ -241,7 +241,7 @@ class ExerciseApp {
     checkPracticeAnswer(practiceItem) {
         const input = practiceItem.querySelector('.exercise-practice-input');
         const feedback = practiceItem.querySelector('.exercise-feedback');
-        const userAnswer = input.value.trim();
+        const userAnswer = input.value.trim().normalize('NFC');
         
         // For practice sentences, any answer is accepted as correct for now
         feedback.textContent = 'Answer accepted! 🎉';
