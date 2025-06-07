@@ -11,14 +11,15 @@ This flashcard application helps users learn English vocabulary by presenting wo
 ### Two Study Modes
 
 1. **Manual Mode**
-   - Users can select any 7 words from the vocabulary list
+   - Users can select any number of words from the vocabulary list without limits
+   - Clear selection button to quickly deselect all words
    - Study the selected words with interactive flashcards
    - Word selections are saved between sessions using IndexedDB
 
 2. **Automatic Mode**
-   - Words are automatically divided into epochs of 7 words each
-   - Users can navigate through epochs sequentially
-   - Current epoch is saved between sessions
+   - Users specify the number of words they want to study
+   - Random word selection based on the specified quantity
+   - Study the randomly selected words with interactive flashcards
 
 ### Flashcard Functionality
 
