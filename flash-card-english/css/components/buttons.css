@@ -1,0 +1,130 @@
+/* Button Styles */
+.button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #3a7bc8;
+  text-decoration: none;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button.secondary {
+  background-color: var(--secondary-color);
+}
+
+.button.secondary:hover {
+  background-color: #e08e0b;
+}
+
+.button.outline {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.button.outline:hover {
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.button.small {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+.button.large {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+}
+
+.button.full-width {
+  display: block;
+  width: 100%;
+}
+
+.button.disabled, .button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button i {
+  margin-right: 5px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.start-button {
+  background-color: var(--success-color);
+}
+
+.start-button:hover {
+  background-color: #27ae60;
+}
+
+.home-button {
+  background-color: #7f8c8d;
+}
+
+.home-button:hover {
+  background-color: #6c7a7b;
+}
+
+/* Audio button styles */
+.audio-button {
+  background: none;
+  border: none;
+  color: #2196F3;
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+}
+
+.audio-button:hover {
+  background-color: #e3f2fd;
+}
+
+.audio-button:disabled {
+  color: #bdbdbd;
+  cursor: not-allowed;
+}
+
+.audio-button:disabled:hover {
+  background-color: transparent;
+}
+
+/* Exercise check button */
+.exercise-check-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.exercise-check-button:hover {
+  background-color: #3a7bc8;
+}
+
+.exercise-check-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -212,7 +212,10 @@ class FlashcardApp {
      * @param {Object} flashcardData - The flashcard data
      */
     displayFlashcard(flashcardData) {
-        this.wordDisplay.textContent = flashcardData.word;
+        // Display word with its type (e.g., "ability (noun)")
+        const currentWord = this.selectedWords[this.currentWordIndex];
+        const wordType = wordData[currentWord].type;
+        this.wordDisplay.textContent = `${flashcardData.word} (${wordType})`;
         
         // Display both pronunciations if available
         const brPron = flashcardData.pronunciationBr || '';
@@ -259,7 +262,7 @@ class FlashcardApp {
         }
         
         const currentWord = this.selectedWords[this.currentWordIndex];
-        const correctAnswer = wordData[currentWord].toLowerCase();
+        const correctAnswer = wordData[currentWord].vn.toLowerCase();
         const normalizedInput = userInput.toLowerCase();
         
         if (normalizedInput === correctAnswer) {
@@ -294,7 +297,7 @@ class FlashcardApp {
                     this.incorrectWords.push(currentWord);
                 }
                 
-                this.showFeedback(false, `Incorrect. The correct answer is: ${wordData[currentWord]}`);
+                this.showFeedback(false, `Incorrect. The correct answer is: ${wordData[currentWord].vn}`);
                 
                 // Disable check button, enable next button
                 this.checkButton.disabled = true;
@@ -344,6 +347,20 @@ class FlashcardApp {
         this.correctCountElement.textContent = this.stats.correct;
         this.incorrectCountElement.textContent = this.stats.incorrect;
         this.accuracyElement.textContent = `${accuracy}%`;
+        
+        // Add Exercise button to the buttons container
+        const buttonsContainer = this.resultsContainer.querySelector('.buttons');
+        
+        // Check if the exercise button already exists
+        if (!buttonsContainer.querySelector('.exercise-button')) {
+            const exerciseButton = document.createElement('a');
+            exerciseButton.href = 'exercise.html';
+            exerciseButton.className = 'button exercise-button';
+            exerciseButton.innerHTML = '<i class="fas fa-dumbbell"></i> Practice Exercises';
+            
+            // Insert the exercise button at the beginning of the buttons container
+            buttonsContainer.insertBefore(exerciseButton, buttonsContainer.firstChild);
+        }
         
         // Save progress to IndexedDB
         try {

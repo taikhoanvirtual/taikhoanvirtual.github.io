@@ -1,0 +1,13 @@
+/* Main CSS file that imports all component CSS files */
+
+/* Base styles */
+@import url('base.css');
+
+/* Layout styles */
+@import url('layout.css');
+
+/* Component styles */
+@import url('components/buttons.css');
+@import url('components/flashcard.css');
+@import url('components/exercise.css');
+@import url('components/dictionary.css');

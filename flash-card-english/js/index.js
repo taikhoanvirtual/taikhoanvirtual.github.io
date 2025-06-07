@@ -113,7 +113,8 @@ class IndexApp {
         Object.keys(wordData).forEach(word => {
             const wordItem = document.createElement('div');
             wordItem.className = 'word-item';
-            wordItem.textContent = word;
+            // Display word with its type (e.g., "ability (noun)")
+            wordItem.textContent = `${word} (${wordData[word].type})`;
             wordItem.dataset.word = word;
             
             wordItem.addEventListener('click', () => {

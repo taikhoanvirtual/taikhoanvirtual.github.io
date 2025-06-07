@@ -5,9 +5,9 @@ const wordData ={
         "type": "adj",
         "vn": "có thể"
       },
-      "to enable": {
-        "type": "part",
-        "vn": "để kích hoạt"
+      "enable": {
+        "type": "verb",
+        "vn": "kích hoạt"
       },
       "ably": {
         "type": "adv",
@@ -15,10 +15,10 @@ const wordData ={
       }
     },
     "practice": [
-      "The technology ________users with one telephone number to gain access to their desktop phone, cellulphone, fand pager.",
-      "She w_______ assisted her teof researchers.",
+      "The technology ________users with one telephone number to gain access to their desktop phone, cellular phone, fax and pager.",
+      "She was _______ assisted by her team of researchers.",
       "The health centre serves all patients, regardless of their _______ to pay.",
-      "I'd like to more gardening, but I never seem _______ to find the time."
+      "I'd like to do more gardening, but I never seem _______ to find the time."
     ],
     "type": "noun",
     "vn": "khả năng"
@@ -31,7 +31,7 @@ const wordData ={
       }
     },
     "practice": [
-      "His gre_______ is to make all the players into a united team.",
+      "His great _______ is to make all the players into a united team.",
       "The reason I _______ good results is because I work hard -- and so could you."
     ],
     "type": "verb",
@@ -49,9 +49,9 @@ const wordData ={
       }
     },
     "practice": [
-      "It's impossible to predithe weather _______.",
+      "It's impossible to predict the weather _______.",
       "There have been questions about the _______ of the report.",
-      "The evidenshe gave to the court wnot strictly _______."
+      "The evidence she gave to the court was not strictly _______."
     ],
     "type": "noun",
     "vn": "sự chính xác"
@@ -76,8 +76,8 @@ const wordData ={
       }
     },
     "practice": [
-      "LeonarDiCaprio is my favourite ________ -- he's so good-looking!",
-      "Carol w_______involved in the locsports cluThe government must take _______ now to stop the rise in violent crime.",
+      "Leonardo DiCaprio is my favourite ________ -- he's so good-looking!",
+      "Carol was _______involved in the local sports cluThe government must take _______ now to stop the rise in violent crime.",
       "The UN must _______ now to restore democracy.  e. My father always led a very _______ life."
     ],
     "type": "noun",
@@ -95,9 +95,9 @@ const wordData ={
       }
     },
     "practice": [
-      "The catfish is _______ to a wirange of water conditions.",
+      "The catfish is _______ to a wide range of water conditions.",
       "The children are finding it hard to _______ to the new school.",
-      "She wresponsible for the _______ of the book \"The Witches of Eastwick\" into a stage play."
+      "She was responsible for the _______ of the book \"The Witches of Eastwick\" into a stage play."
     ],
     "type": "verb",
     "vn": "thích nghi"
@@ -118,10 +118,10 @@ const wordData ={
       }
     },
     "practice": [
-      "_______ information cobtained from the centre.",
+      "_______ information can be obtained from the centre.",
       "Despite the ________ of fertilizer, flowers are still unable to grow in the soil.",
-      "A new contrais in place. ________, staff will offered a bonus scheme.",
-      "Betogether the egg and sugar, then ______ the flour."
+      "A new contract is in place. ________, staff will be offered a bonus scheme.",
+      "Beat together the egg and sugar, then ______ the flour."
     ],
     "type": "verb",
     "vn": "thêm vào"
@@ -148,8 +148,8 @@ const wordData ={
     "practice": [
       "McEnroe played _______, defeating another U.S. upstart, 16-year-old Michael Chang.",
       "Rollins _________ for her poetry, but she also writes fiction.",
-      "His passion for work winsatiable, ________ quality in a man.",
-      "A crowd of ___________ hgathered outsiDunham's door. e. Carlos hearned our respeand _________."
+      "His passion for work was insatiable, an ________ quality in a man.",
+      "A crowd of ___________ had gathered outside Dunham's door. e. Carlos has earned our respect and _________."
     ],
     "type": "propn",
     "vn": "ngưỡng mộ"
@@ -170,10 +170,10 @@ const wordData ={
       }
     },
     "practice": [
-      "We receive hundreof job _________eayear.",
-      "She _______ for a job with the locnewspaper three weeks ago.",
-      "No single methohowever, is ever going to universally ________.",
-      "__________ for teacher-training courses need to have least one year's experience."
+      "We receive hundreds of job _________each year.",
+      "She _______ for a job with the local newspaper three weeks ago.",
+      "No single method, however, is ever going to be universally ________.",
+      "__________ for teacher-training courses need to have at least one year's experience."
     ],
     "type": "verb",
     "vn": "áp dụng"
@@ -190,9 +190,9 @@ const wordData ={
       }
     },
     "practice": [
-      "It helps children to develop __________ of poetry and literature.",
-      "He wrote a warm, ____________ letter, thanking her for everything she hdone.",
-      "He did not fully _________ the significanof signing the contract."
+      "It helps children to develop an __________ of poetry and literature.",
+      "He wrote a warm, ____________ letter, thanking her for everything she had done.",
+      "He did not fully _________ the significance of signing the contract."
     ],
     "type": "verb",
     "vn": "đánh giá"
@@ -214,9 +214,9 @@ const wordData ={
     },
     "practice": [
       "Lahore boasts a wealth of ___________ significant buildings.",
-      "St Paul's Cathedrwdesigned the famous _________, Sir Christopher Wren.",
-      "He studied ___________ university.",
-      "This mosque is one of the MughEmpire’s most remarkable __________ achievements."
+      "St Paul's Cathedral was designed by the famous _________, Sir Christopher Wren.",
+      "He studied ___________ at university.",
+      "This mosque is one of the Mughal Empire’s most remarkable __________ achievements."
     ],
     "type": "noun",
     "vn": "ngành kiến ​​​​trúc"
@@ -237,14 +237,14 @@ const wordData ={
       }
     },
     "practice": [
-      "Senna w_________ the greatest racing driver of all time.",
+      "Senna was _________ the greatest racing driver of all time.",
       "Gallacher continued _________ with the referee throughout the game.",
       "Some items are frankly fakes; others are of ________ value.",
-      "I broke the vase during __________ with my husban12. attract, attraction, attractive, attractively",
+      "I broke the vase during an __________ with my husban12. attract, attraction, attractive, attractively",
       "Women seem to find him __________.",
-      "Disney World ________ millions of tourists eayear.",
-      "GracelanElvis Presley's former home, is now a tourist ____________ thdraws more th600,000 visitors every year.",
-      "Women and girls wore their hair long and took care thit walways combed and arranged ________."
+      "Disney World ________ millions of tourists each year.",
+      "Graceland, Elvis Presley's former home, is now a tourist ____________ that draws more than 600,000 visitors every year.",
+      "Women and girls wore their hair long and took care that it was always combed and arranged ________."
     ],
     "type": "verb",
     "vn": "tranh cãi"
@@ -270,13 +270,13 @@ const wordData ={
     },
     "practice": [
       "________ is in the eye of the beholder.",
-      "Florenis sua ________ city.",
-      "Locals welcome any efforts to __________ the neighbourhooShe wworking double hours a ________. e. Sea slugs are often __________ coloure14. believe, belief, believer, believable, unbelievable, unbelievably",
+      "Florence is such a ________ city.",
+      "Locals welcome any efforts to __________ the neighbourhooShe was working double hours as a ________. e. Sea slugs are often __________ coloure14. believe, belief, believer, believable, unbelievable, unbelievably",
       "The plot is _________, but the characters aren't very interesting.",
-      "I find it _________ thMr. Carvey hno memory of thday.",
-      "It is my ___________ thwe will find a cure for cancer in the next ten years.",
+      "I find it _________ that Mr. Carvey has no memory of that day.",
+      "It is my ___________ that we will find a cure for cancer in the next ten years.",
       "You shouldn't ________ everything you rea",
-      " e. She wa strong ________ in women's participation in public affairs. f. The power of the atomic bomb is ___________ great."
+      " e. She was a strong ________ in women's participation in public affairs. f. The power of the atomic bomb is ___________ great."
     ],
     "type": "noun",
     "vn": "sắc đẹp"
@@ -305,10 +305,10 @@ const wordData ={
       }
     },
     "practice": [
-      "Deforestation, over-development, and pollution from human-machemicals are just a few of the consequences of humactivity and _____________.",
-      "You need to think very ___________ about whicourse you want to do.",
+      "Deforestation, over-development, and pollution from human-made chemicals are just a few of the consequences of human activity and _____________.",
+      "You need to think very ___________ about which course you want to do.",
       "Be __________ - there's broken glass on the floor!",
-      "I'm very lucky to have a husbanfamily and frienwho __________ about me. e. I maa few __________ mistakes. f. If one part of the ecosystem is _________ destroyethe whole environment suffers."
+      "I'm very lucky to have a husband, family and friends who __________ about me. e. I made a few __________ mistakes. f. If one part of the ecosystem is _________ destroyed, the whole environment suffers."
     ],
     "type": "verb",
     "vn": "sự chăm sóc"
@@ -329,8 +329,8 @@ const wordData ={
       }
     },
     "practice": [
-      "How you usually _________ New Year?",
-      "New Ye__________ in Scotland go on for three days.",
+      "How do you usually _________ New Year?",
+      "New Year __________ in Scotland go on for three days.",
       "The ___________ event will mark the 75th anniversary of the university.",
       "I get to have fun and meet lots of __________ and get my picture taken."
     ],
@@ -353,10 +353,10 @@ const wordData ={
       }
     },
     "practice": [
-      "Easpecies of bird hits own ____________ song.",
-      "Naturlthinking ______________ two major problems.",
-      "In the story, the main _____________ hleft his girlfriend and baby.",
-      "In locenvironments, dominant species of trees are _______________ associated with certain shruand herbs."
+      "Each species of bird has its own ____________ song.",
+      "Natural law thinking ______________ by two major problems.",
+      "In the story, the main _____________ has left his girlfriend and baby.",
+      "In local environments, dominant species of trees are _______________ associated with certain shrubs and herbs."
     ],
     "type": "noun",
     "vn": "tính cách"
@@ -377,10 +377,10 @@ const wordData ={
       }
     },
     "practice": [
-      "Hales is best known a physiologist, ___________, and inventor.",
+      "Hales is best known as a physiologist, ___________, and inventor.",
       "___________, the substances are similar.",
-      "Edison whis hero; _________ and electricity were his passions.",
-      "More tha score of nations now seeks or possesses ____________ weapons."
+      "Edison was his hero; _________ and electricity were his passions.",
+      "More than a score of nations now seeks or possesses ____________ weapons."
     ],
     "type": "noun",
     "vn": "hoá học"
@@ -405,10 +405,10 @@ const wordData ={
       }
     },
     "practice": [
-      "The decision to launnucleweapons must _____________.",
+      "The decision to launch nuclear weapons must be _____________.",
       "The company ___________ information about consumer trends.",
-      "Rain, snow and hail are ___________ known precipitation.",
-      "The painting wbought a private ___________. e. Have you seen Alvin's stamp __________?"
+      "Rain, snow and hail are ___________ known as precipitation.",
+      "The painting was bought by a private ___________. e. Have you seen Alvin's stamp __________?"
     ],
     "type": "verb",
     "vn": "sưu tầm"
@@ -426,12 +426,12 @@ const wordData ={
     },
     "practice": [
       "The bed wasn't particularly __________.",
-      "Alwvery reluctant to leave the warmth and __________ of the fire.",
-      "He tried to _________ her telling her theverything would all right.",
+      "Alan was very reluctant to leave the warmth and __________ of the fire.",
+      "He tried to _________ her by telling her that everything would be all right.",
       "The hotel is modern and ___________ furnishe21. commerce, commercial, commercially",
-      "Nintenhbeen _____________ successful.",
-      "It is renowned a business and ____________ centre.",
-      "This restriction creates a barrier for globelectronic ____________."
+      "Nintendo has been _____________ successful.",
+      "It is renowned as a business and ____________ centre.",
+      "This restriction creates a barrier for global electronic ____________."
     ],
     "type": "noun",
     "vn": "an ủi"
@@ -453,7 +453,7 @@ const wordData ={
     },
     "practice": [
       "In ____________ to other recent video games, this one isn't very exciting.",
-      "A cof ____________ size would cost fmore abroaIf you ___________ rents in London with those in New York, you'll find they are about the same.",
+      "A car of ____________ size would cost far more abroaIf you ___________ rents in London with those in New York, you'll find they are about the same.",
       "Earnings have risen _________ in the computer industry."
     ],
     "type": "noun",
@@ -479,10 +479,10 @@ const wordData ={
       }
     },
     "practice": [
-      "Last yethey sold twimany computers their _____________.",
-      "There is fier____________ between the three leading somanufacturers.",
-      "Some US industries are not ___________ they have been in the past.",
-      "Snowboarding is performed both recreationally and ___________. e. The stores have to ____________ for customers in the Christmseason."
+      "Last year they sold twice as many computers as their _____________.",
+      "There is fierce ____________ between the three leading soap manufacturers.",
+      "Some US industries are not as ___________ as they have been in the past.",
+      "Snowboarding is performed both recreationally and ___________. e. The stores have to ____________ for customers in the Christmas season."
     ],
     "type": "verb",
     "vn": "hoàn thành"
@@ -499,8 +499,8 @@ const wordData ={
       }
     },
     "practice": [
-      "I can't get the progrto work on my ___________.",
-      "Finresults hnot yet been ___________.",
+      "I can't get the program to work on my ___________.",
+      "Final results had not yet been ___________.",
       "Even today, children spend 90 percent of their math time on these ____________."
     ],
     "type": "propn",
@@ -526,10 +526,10 @@ const wordData ={
       }
     },
     "practice": [
-      "It wvery _____________ of you to let us know you were going to late.",
+      "It was very _____________ of you to let us know you were going to be late.",
       "We've saved a ___________ amount of money.",
-      "Cost should not your main _____________.",
-      "Conditions have improved ______________ over the past few years. e. Before buying a cyou should ______________ the cost of insuring it."
+      "Cost should not be your main _____________.",
+      "Conditions have improved ______________ over the past few years. e. Before buying a car you should ______________ the cost of insuring it."
     ],
     "type": "verb",
     "vn": "coi như"
@@ -554,10 +554,10 @@ const wordData ={
       }
     },
     "practice": [
-      "______________ of Highw85 will begin soon.",
+      "______________ of Highway 85 will begin soon.",
       "We welcome any _____________ criticism.",
-      "There are plans to ____________ a new robridge across the river.",
-      "Unable to de____________ with the opposition, he became heavy-handed in his rule.  e. All this is wonderful testament to the life's designers and __________."
+      "There are plans to ____________ a new road bridge across the river.",
+      "Unable to deal ____________ with the opposition, he became heavy-handed in his rule.  e. All this is wonderful testament to the life's designers and __________."
     ],
     "type": "verb",
     "vn": "xây dựng"
@@ -578,9 +578,9 @@ const wordData ={
       }
     },
     "practice": [
-      "_____________ will soon paying higher air fares.",
-      "Internationrelief supplied more th5,000 tonnes of drugs and ___________ medicsupplies, syringes, needles and other equipment.",
-      "In order to survive humbeings need to ___________ food and water.",
+      "_____________ will soon be paying higher air fares.",
+      "International relief supplied more than 5,000 tonnes of drugs and ___________ medical supplies, syringes, needles and other equipment.",
+      "In order to survive human beings need to ___________ food and water.",
       "The ____________ of alcohol on the premises is forbidden."
     ],
     "type": "verb",
@@ -598,9 +598,9 @@ const wordData ={
       }
     },
     "practice": [
-      "Einstein wawarded the Nobel Prize for his ____________ to Quantum Theory.",
+      "Einstein was awarded the Nobel Prize for his ____________ to Quantum Theory.",
       "The volunteers ____________ their own time to the project.",
-      "Dr Win wa major ____________ to the research."
+      "Dr Win was a major ____________ to the research."
     ],
     "type": "verb",
     "vn": "đóng góp"
@@ -619,7 +619,7 @@ const wordData ={
     "practice": [
       "I wish he'd learn to ____________ his temper.",
       "Babies are born with very little _____________ over their movements.",
-      "Wayne, the treasurer and ___________, exercised power to successfully establish offshore trading company.",
+      "Wayne, the treasurer and ___________, exercised power to successfully establish an offshore trading company.",
       "Diabetes is a serious but __________ disease."
     ],
     "type": "noun",
@@ -645,10 +645,10 @@ const wordData ={
       }
     },
     "practice": [
-      "Children should allowed to develop their ____________ abilities.",
-      "Some people believe the universe ___________ a big explosion.",
-      "The plshould result in the ____________ of 2000 new jobs.",
-      "Diaghilev is considered many to the ___________ of the first modern dancompany. e. All students improve when they are taught to think analytically, ____________ and practically about the materithey learn."
+      "Children should be allowed to develop their ____________ abilities.",
+      "Some people believe the universe ___________ by a big explosion.",
+      "The plan should result in the ____________ of 2000 new jobs.",
+      "Diaghilev is considered by many to be the ___________ of the first modern dance company. e. All students improve when they are taught to think analytically, ____________ and practically about the material they learn."
     ],
     "type": "verb",
     "vn": "tạo nên"
@@ -674,9 +674,9 @@ const wordData ={
     },
     "practice": [
       "10 people died and 30 were ____________ injured in a rail crash yesterday.",
-      "After the University of Montpellier he worked first a film _______, then a reporter in Paris.",
-      "He masome highly _________ remarks.",
-      "The decision hbeen strongly ___________ teachers. e. Despite strong ____________, the new system is still in place."
+      "After the University of Montpellier he worked first as a film _______, then as a reporter in Paris.",
+      "He made some highly _________ remarks.",
+      "The decision has been strongly ___________ by teachers. e. Despite strong ____________, the new system is still in place."
     ],
     "type": "noun",
     "vn": "chỉ trích"
@@ -698,7 +698,7 @@ const wordData ={
     },
     "practice": [
       "The virus is probably not ___________ to humans.",
-      "Smoking during pregnan___________ your baby's life.",
+      "Smoking during pregnancy ___________ your baby's life.",
       "The __________ of a fire in the home increases during the holidays.",
       "People who drive ____________ should receive harsher punishments."
     ],
@@ -721,14 +721,14 @@ const wordData ={
       }
     },
     "practice": [
-      "Poliare trying to contathe family of the ___________ man.",
-      "Arsenia ____________ poison, exceeded the safe limit seven times.",
+      "Police are trying to contact the family of the ___________ man.",
+      "Arsenic, a ____________ poison, exceeded the safe limit by seven times.",
       "Cancer is the leading cause of ___________ in women.",
-      "He ____________ in 1985 the age of34. decide, decision, decisive, decisively",
-      "Yet again, we have failed to a__________.",
+      "He ____________ in 1985 at the age of34. decide, decision, decisive, decisively",
+      "Yet again, we have failed to act __________.",
       "People have a right to __________ how to spend their own money.",
-      "Women cpla __________ role in the debate over cloning.",
-      "Do you ever wonder if you mathe right __________?"
+      "Women can play a __________ role in the debate over cloning.",
+      "Do you ever wonder if you made the right __________?"
     ],
     "type": "verb",
     "vn": "chết"
@@ -752,7 +752,7 @@ const wordData ={
       "My uncle Bill's been a painter and ___________ all his life.",
       "Many of the nature books are purely ___________, but a few are very informative.",
       "The bathroom _____________ in green and yellow.",
-      "The only ______________ in the room wa picture above the fireplace."
+      "The only ______________ in the room was a picture above the fireplace."
     ],
     "type": "verb",
     "vn": "trang trí"
@@ -781,9 +781,9 @@ const wordData ={
       }
     },
     "practice": [
-      "She helderly parents who could no longer live __________.",
-      "Norway's economy is heavily ___________ on naturresources.",
-      "Nigeria gained ____________ from Britain in____________ on alcohol chave a serious effeon your relationships and career. e. 'How long are you staying?' 'I don't know; it ________.' f. Robert aimed to _____________ of his parents the time he wtwenty."
+      "She had elderly parents who could no longer live __________.",
+      "Norway's economy is heavily ___________ on natural resources.",
+      "Nigeria gained ____________ from Britain in____________ on alcohol can have a serious effect on your relationships and career. e. 'How long are you staying?' 'I don't know; it ________.' f. Robert aimed to be _____________ of his parents by the time he was twenty."
     ],
     "type": "verb",
     "vn": "phụ thuộc"
@@ -800,8 +800,8 @@ const wordData ={
       }
     },
     "practice": [
-      "The floobrought death and ____________ to the areAt this rate, the forest will completely ____________ within the next 30 years.",
-      "Alcoholioften tend to have stormy and ___________ relationships."
+      "The floods brought death and ____________ to the areAt this rate, the forest will be completely ____________ within the next 30 years.",
+      "Alcoholics often tend to have stormy and ___________ relationships."
     ],
     "type": "verb",
     "vn": "hủy hoại"
@@ -822,9 +822,9 @@ const wordData ={
       }
     },
     "practice": [
-      "Average birth rates for women in ___________ countries have fallen from six per womto three in the past three decades.",
+      "Average birth rates for women in ___________ countries have fallen from six per woman to three in the past three decades.",
       "Chicago _____________ into a big city in the late 1800s.",
-      "A 63-year-old property _____________ who does not want to nameTom is one of the wealthiest men on the islan____________ in radand engine designs have changed the shape of the plane."
+      "A 63-year-old property _____________ who does not want to be named, Tom is one of the wealthiest men on the islan____________ in radar and engine designs have changed the shape of the plane."
     ],
     "type": "verb",
     "vn": "phát triển"
@@ -845,10 +845,10 @@ const wordData ={
       }
     },
     "practice": [
-      "The main ___________ between the groups wage.",
-      "I didn't expeto treated ____________ from anyone else.",
+      "The main ___________ between the groups was age.",
+      "I didn't expect to be treated ____________ from anyone else.",
       "People ___________ from one another in their ability to handle stress.",
-      "Our sons are very __________ from eaother."
+      "Our sons are very __________ from each other."
     ],
     "type": "verb",
     "vn": "khác nhau"
@@ -873,10 +873,10 @@ const wordData ={
       }
     },
     "practice": [
-      "Have you met the new finan_____________?",
+      "Have you met the new finance _____________?",
       "In some instances, our recommendations are highly ____________.",
-      "The new property tlwon't ____________ affeus.",
-      "The girls pointed in the opposite __________. e. I want to __________ my efforts more towarmy own projects."
+      "The new property tax law won't ____________ affect us.",
+      "The girls pointed in the opposite __________. e. I want to __________ my efforts more towards my own projects."
     ],
     "type": "adj",
     "vn": "trực tiếp"
@@ -893,9 +893,9 @@ const wordData ={
       }
     },
     "practice": [
-      "the TasmSewnamed after its ___________, the Dutexplorer and navigator Abel Tasman.",
-      "The Hubble Telescope hallowed astronomers to make significant __________ about our galaxy.",
-      "Her bo__________ in a field yesterday."
+      "the Tasman Sea  was named after its ___________, the Dutch explorer and navigator Abel Tasman.",
+      "The Hubble Telescope has allowed astronomers to make significant __________ about our galaxy.",
+      "Her body __________ in a field yesterday."
     ],
     "type": "verb",
     "vn": "phát hiện"
@@ -914,7 +914,7 @@ const wordData ={
     "practice": [
       "The cost of packaging and _____________ ranges from $3 to $4 per videotape.",
       "Wisdom is also exclusive ___________ for Triple Gem Press.",
-      "Milk ___________ to the locshops Herald's Dairies."
+      "Milk ___________ to the local shops by Herald's Dairies."
     ],
     "type": "verb",
     "vn": "phân phát"
@@ -932,11 +932,11 @@ const wordData ={
     },
     "practice": [
       "Would you like to make a ____________ to our charity appeal?",
-      "Last yehe ___________ $1,000 to cancer research.",
-      "An anonymous ___________ hgiven £500 towarthe restoration fun44. economy, economist,  economise, economieconomical, economically",
+      "Last year he ___________ $1,000 to cancer research.",
+      "An anonymous ___________ has given £500 towards the restoration fun44. economy, economist,  economise, economic, economical, economically",
       "_________ reform is needeHigher taxes encourage people to ___________ on fuel.",
-      "A small cis more ___________ to run.",
-      "Cherry went to work a home __________. e. ____________, capitalism htransformed societies. f. This increase in export earnings will stimulate the domestic ___________."
+      "A small car is more ___________ to run.",
+      "Cherry went to work as a home __________. e. ____________, capitalism has transformed societies. f. This increase in export earnings will stimulate the domestic ___________."
     ],
     "type": "verb",
     "vn": "quyên tặng"
@@ -957,8 +957,8 @@ const wordData ={
       }
     },
     "practice": [
-      "A limited ____________ of 2000 copies hbeen publisheSharon is ___________ assistant in the sports department.",
-      "ArWard became sports _________ of the Chicago Tribune.",
+      "A limited ____________ of 2000 copies has been publisheSharon is an ___________ assistant in the sports department.",
+      "Arch Ward became sports _________ of the Chicago Tribune.",
       "The newspaper _________ letters before printing them."
     ],
     "type": "noun",
@@ -984,13 +984,13 @@ const wordData ={
       }
     },
     "practice": [
-      "The fire wcaused ____________ fault.",
-      "He trained ____________.",
-      "Mackenzie ____________ the Toronto streetcsystem.",
-      "The farm wvery isolatebut it h____________. e. By 1904 about one-third of all the cars in New York City were ____________ powere47. election, elector, elect, elective",
-      "It hbeen estimated ththere are approximately 1 million __________ offices to filleI think we should start ________ a new chairman.",
-      "Over 36% of ___________ did not vote all.",
-      "The next presidenti_______ is due in two years."
+      "The fire was caused by an ____________ fault.",
+      "He trained as an ____________.",
+      "Mackenzie ____________ the Toronto streetcar system.",
+      "The farm was very isolated, but it had ____________. e. By 1904 about one-third of all the cars in New York City were ____________ powere47. election, elector, elect, elective",
+      "It has been estimated that there are approximately 1 million __________ offices to be filleI think we should start by ________ a new chairman.",
+      "Over 36% of ___________ did not vote at all.",
+      "The next presidential _______ is due in two years."
     ],
     "type": "noun",
     "vn": "điện"
@@ -1017,17 +1017,12 @@ const wordData ={
     "practice": [
       "My previous ___________ gave us four weeks of vacation after 10 years.",
       "She's highly __________, so she shouldn't have any trouble finding work.",
-      "I ___________ a night-watchmthe lochospital.",
-      "Mexiclprohibits the _____________ of children under"
+      "I ___________ as a night-watchman by the local hospital.",
+      "Mexican law prohibits the _____________ of children under",
+      "The company laid off about 90 of its 170 __________."
     ],
     "type": "noun",
     "vn": "thuê người làm"
-  },
-  "e. The company laid off about 90 of its 170 __________.": {
-    "family": {},
-    "practice": [],
-    "type": "propn",
-    "vn": "e.Công ty đã sa thải khoảng 90 trong số 170 __________."
   },
   "encouragement": {
     "family": {
@@ -1046,9 +1041,9 @@ const wordData ={
     },
     "practice": [
       "His condition after the surgery looks very _____________.",
-      "Cooder ______________ to begin playing the guithis father.",
+      "Cooder ______________ to begin playing the guitar by his father.",
       "Children need lots of ______________ when they're learning new things.",
-      "______________, major chain stores across the United States reported sharp September sales increases this yeover last year."
+      "______________, major chain stores across the United States reported sharp September sales increases this year over last year."
     ],
     "type": "noun",
     "vn": "sự khích lệ"
@@ -1070,11 +1065,11 @@ const wordData ={
     },
     "practice": [
       "The charity hopes the campaign will __________ its volunteers.",
-      "He fought __________ against apartheiShe wfull of ___________ after her vacation.",
-      "We need to more __________ in promoting ourselves abroa51. enjoy, enjoyment, enjoyable",
+      "He fought __________ against apartheiShe was full of ___________ after her vacation.",
+      "We need to be more __________ in promoting ourselves abroa51. enjoy, enjoyment, enjoyable",
       "Young children __________ helping around the house.",
-      "A really good wine will ato your __________ of the meal.",
-      "We spent __________ evening playing cards."
+      "A really good wine will add to your __________ of the meal.",
+      "We spent an __________ evening playing cards."
     ],
     "type": "noun",
     "vn": "năng lượng"
@@ -1091,10 +1086,10 @@ const wordData ={
       }
     },
     "practice": [
-      "An oil spill of thsize will cause a lot of _________ damage.",
+      "An oil spill of that size will cause a lot of _________ damage.",
       "Some of these chemicals are very damaging to the ___________.",
-      "The change hbeen sharply criticized _________________.",
-      "Earth Dorganizers ask consumers to avoid buying ________________ harmful products."
+      "The change has been sharply criticized by _________________.",
+      "Earth Day organizers ask consumers to avoid buying ________________ harmful products."
     ],
     "type": "noun",
     "vn": "môi trường"
@@ -1115,10 +1110,10 @@ const wordData ={
       }
     },
     "practice": [
-      "Maps were created different ___________ who eabrought in their own small bit.",
-      "The air blanding scheme hnever been used in spa___________.",
-      "The operations hbeen mainly ____________.",
-      "Veniis a wonderful city to __________."
+      "Maps were created by different ___________ who each brought in their own small bit.",
+      "The air bag landing scheme had never been used in space ___________.",
+      "The operations had been mainly ____________.",
+      "Venice is a wonderful city to __________."
     ],
     "type": "noun",
     "vn": "khám phá"
@@ -1135,7 +1130,7 @@ const wordData ={
       }
     },
     "practice": [
-      "Streisand won __________ a singer before she became actress.",
+      "Streisand won __________ as a singer before she became an actress.",
       "The Eiffel Tower is a __________ landmark",
       "Dorothy and Amelia got on _________."
     ],
@@ -1158,8 +1153,8 @@ const wordData ={
       }
     },
     "practice": [
-      "The voion the phone sounded ________.",
-      "The FBI is looking for Tom Charles, _________ known Charlie the KiIn fahis ____________ with the Bronx wpretty limiteEmployees must ___________ themselves with the health and safety manual."
+      "The voice on the phone sounded ________.",
+      "The FBI is looking for Tom Charles, _________ known as Charlie the KiIn fact his ____________ with the Bronx was pretty limiteEmployees must ___________ themselves with the health and safety manual."
     ],
     "type": "noun",
     "vn": "quen thuộc"
@@ -1180,10 +1175,10 @@ const wordData ={
       }
     },
     "practice": [
-      "He wexpert in _____________ and advised people where to invest their money.",
-      "The concerts ___________ the Arts Council.",
-      "He wsuccessful and _____________ secure.",
-      "_____________, merchants and bankers, suthe Rothschiland the Barings, remained the most distinctive group. e. It wa wonderful film, but not exactly a __________ success."
+      "He was an expert in _____________ and advised people where to invest their money.",
+      "The concerts ___________ by the Arts Council.",
+      "He was successful and _____________ secure.",
+      "_____________, merchants and bankers, such as the Rothschilds and the Barings, remained the most distinctive group. e. It was a wonderful film, but not exactly a __________ success."
     ],
     "type": "noun",
     "vn": "tài chính"
@@ -1200,8 +1195,8 @@ const wordData ={
       }
     },
     "practice": [
-      "Eton College _____________ Henry VI inThe earthquake shook the ______________ of the house.",
-      "The shop is still run the ____________ and his two sons."
+      "Eton College _____________ by Henry VI inThe earthquake shook the ______________ of the house.",
+      "The shop is still run by the ____________ and his two sons."
     ],
     "type": "verb",
     "vn": "thành lập"
@@ -1229,7 +1224,7 @@ const wordData ={
     },
     "practice": [
       "At one point, he hired a young college _________ to help.",
-      "Kate _____________ from medicschool last year.",
+      "Kate _____________ from medical school last year.",
       "We're going to Sarah's ___________ on Sunday."
     ],
     "type": "noun",
@@ -1252,8 +1247,8 @@ const wordData ={
     },
     "practice": [
       "____________, part-timers work in low-status, low-wage occupations.",
-      "You can't make __________________ about whmen and women are like.",
-      "I have a ___________ idea of whI want to express.",
+      "You can't make __________________ about what men and women are like.",
+      "I have a ___________ idea of what I want to express.",
       "It is difficult to ___________ about the kind of people who come on these courses."
     ],
     "type": "noun",
@@ -1271,8 +1266,8 @@ const wordData ={
       }
     },
     "practice": [
-      "We've seen enormous ____________ in the number of businesses using the WeC______________ persuaded to change their minds?",
-      "Sales of new cars ____________ 10% last year."
+      "We've seen an enormous ____________ in the number of businesses using the WeCan ______________ be persuaded to change their minds?",
+      "Sales of new cars ____________ by 10% last year."
     ],
     "type": "verb",
     "vn": "phát triển"
@@ -1286,7 +1281,7 @@ const wordData ={
     },
     "practice": [
       "I've always been perfectly ____________ until now.",
-      "Smoking cseriously damage your __________."
+      "Smoking can seriously damage your __________."
     ],
     "type": "noun",
     "vn": "sức khỏe"
@@ -1307,10 +1302,10 @@ const wordData ={
       }
     },
     "practice": [
-      "Increased levels of fin the diet could ____________ the risk of cancer.",
+      "Increased levels of fat in the diet could ____________ the risk of cancer.",
       "My brother and I are nearly the same ______________.",
-      "Tom's mother w__________ criticof the school's approach.",
-      "The camp wsurrounded a ___________ fence."
+      "Tom's mother was __________ critical of the school's approach.",
+      "The camp was surrounded by a ___________ fence."
     ],
     "type": "adj",
     "vn": "cao"
@@ -1327,10 +1322,10 @@ const wordData ={
       }
     },
     "practice": [
-      "She wcoming to __________ clethe machines.",
+      "She was coming to __________ clean the machines.",
       "Do you want any _________ with the washing-up?",
       "It is _________ to discuss your problems with your friends.",
-      "Ella works the hospitona week a voluntary ___________."
+      "Ella works at the hospital once a week as a voluntary ___________."
     ],
     "type": "verb",
     "vn": "giúp đỡ"
@@ -1351,7 +1346,7 @@ const wordData ={
       }
     },
     "practice": [
-      "This is wha recent ____________, S. D. Gothein, hsuggesteWKing Arthur a re___________ figure?",
+      "This is what a recent ____________, S. D. Gothein, has suggesteWas King Arthur a real ___________ figure?",
       "Throughout __________, the achievements of women have been largely ignoreHow __________ significant is this discovery?"
     ],
     "type": "noun",
@@ -1370,7 +1365,7 @@ const wordData ={
     },
     "practice": [
       "Cases of tuberculosis are on the _________.",
-      "Europeleaders watched events unfold with __________ alarm.",
+      "European leaders watched events unfold with __________ alarm.",
       "Marketing techniques are becoming __________ sophisticateThe population _____________ dramatically in the first half of the century."
     ],
     "type": "noun",
@@ -1392,8 +1387,8 @@ const wordData ={
       }
     },
     "practice": [
-      "We regret to ____________ you thyour application hbeen rejecteJim found the library staff friendly and __________.",
-      "The guiwill proviyou with ____________ about the areWorking ___________, Johnson provided the FBI with details on the Mafia's criminactivities."
+      "We regret to ____________ you that your application has been rejecteJim found the library staff friendly and __________.",
+      "The guide will provide you with ____________ about the areWorking as an ___________, Johnson provided the FBI with details on the Mafia's criminal activities."
     ],
     "type": "verb",
     "vn": "thông báo"
@@ -1410,8 +1405,8 @@ const wordData ={
       }
     },
     "practice": [
-      "Angus __________ his leg playing rugyesterday.",
-      "She wtaken to hospitwith serious he__________.",
+      "Angus __________ his leg playing rugby yesterday.",
+      "She was taken to hospital with serious head __________.",
       "Smoking is __________ to health."
     ],
     "type": "verb",
@@ -1433,10 +1428,10 @@ const wordData ={
       }
     },
     "practice": [
-      "Dolphy wextraordinary improviser and _______ who expanded jazz beyond the developments of bebop.",
-      "The company hsuccessfully _________ new products and services.",
+      "Dolphy was an extraordinary improviser and _______ who expanded jazz beyond the developments of bebop.",
+      "The company has successfully _________ new products and services.",
       "___________ and hard work are the cornerstones of this company.",
-      "The city hintroduced __________ system of traffic control."
+      "The city has introduced an __________ system of traffic control."
     ],
     "type": "verb",
     "vn": "Đổi mới"
@@ -1457,10 +1452,10 @@ const wordData ={
       }
     },
     "practice": [
-      "The jury hto deciwhether the killing w___________ act.",
-      "Polibelieve the fire wstarted ___________.",
+      "The jury has to decide whether the killing was an ___________ act.",
+      "Police believe the fire was started ___________.",
       "I have no ____________ of retiring just yet.",
-      "I didn't _____________ her to see the painting until it wfinishe",
+      "I didn't _____________ her to see the painting until it was finishe",
       "d."
     ],
     "type": "verb",

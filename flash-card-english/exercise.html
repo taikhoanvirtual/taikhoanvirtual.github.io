@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Family Exercises - English Flashcards</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Word Family Exercises</h1>
+            <p class="subtitle">Practice related words and sentences</p>
+        </header>
+
+        <div class="exercise-container">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="exercise-progress"></div>
+                </div>
+                <div class="progress-text" id="progress-text">0/0 completed</div>
+            </div>
+
+            <div id="exercise-content">
+                <!-- Exercise content will be dynamically inserted here -->
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading exercises...</p>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <a href="index.html" class="button home-button">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <a href="flashcard.html" class="button start-button">
+                    <i class="fas fa-redo"></i> Restart Session
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 English Flashcards</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data/new_data.js"></script>
+    <script src="js/services/db-service.js"></script>
+    <script src="js/services/dictionary-service.js"></script>
+    <script src="js/exercise.js"></script>
+</body>
+</html>

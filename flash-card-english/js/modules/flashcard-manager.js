@@ -119,7 +119,7 @@ class FlashcardManager {
      */
     checkAnswer(userInput, wordData) {
         const currentWord = this.selectedWords[this.currentWordIndex];
-        const correctAnswer = wordData[currentWord].toLowerCase();
+        const correctAnswer = wordData[currentWord].vn.toLowerCase();
         const normalizedInput = userInput.trim().toLowerCase();
         
         if (normalizedInput === correctAnswer) {
@@ -151,7 +151,7 @@ class FlashcardManager {
                 
                 return {
                     isCorrect: false,
-                    message: `Incorrect. The correct answer is: ${wordData[currentWord]}`,
+                    message: `Incorrect. The correct answer is: ${wordData[currentWord].vn}`,
                     attemptsLeft: this.attemptsLeft,
                     shouldMoveNext: true
                 };
